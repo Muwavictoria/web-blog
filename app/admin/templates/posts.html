@@ -1,0 +1,169 @@
+{% extends 'admin_dashboard_base.html' %}
+
+{% block title %} 
+Users
+{% endblock %}
+
+
+{% block content%}
+<div class="container">
+    <div class="row">
+        <!-- Add posts... start -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+       Add Posts
+    </button>
+    
+    
+    {% for post in posts%}
+      <!-- view posts... start -->
+      <div class="card">
+        <div class="img-card card">
+            <img src="data:image/jpeg;base64,{{post.image|b64encode }}" alt="{{post.title}}">
+          </div>
+          <div class="card-body">
+            <h5> {{post.title}} </h5>
+          <p> {{ post.body | safe}} </p>
+          </div>
+          <div class="card-footer post-footer">
+            {{post.created}}
+            {{post.slug}}
+          </div>
+          <div class="options">
+            <div class="update">
+              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalUpdate{{ post.id }}">
+                Update Posts
+             </button>
+            </div>
+            <div class="delete">
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-id = "{{post.id}}" data-target="#modalDelete{{ post.id }}">
+                Delete Posts
+             </button>
+            </div>
+          </div>
+      </div>
+       <!-- view posts... end -->
+       {% endfor%}
+      
+      <!--  Add Posts Modal start-->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{url_for('admin.addposts')}}" method="post" enctype="multipart/form-data">
+                    <div class="">
+                      <div class="mb-3">
+                        <label for="formFile" class="form-label">Post Image</label>
+                        <input class="form-control" type="file" name="image" id="formFile">
+                      </div>
+                     
+                      <div class="form-group col-sm">
+                        <label for="Carname">Title</label>
+                        <input type="text" class="form-control" name="title" id="title" placeholder="Title">
+                      </div>
+                      
+                      <div class="form-group col-sm">
+                        <label for="description">Body</label>
+                        <!-- create a textarea to be replaced by the ckeditor  -->
+                      <textarea name="body" id="blogtext"></textarea>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                      </div>
+                    </div>
+                    
+                </form>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+      <!-- Add posts... end -->
+
+      <!-- Update Posts modal start  -->
+      {%for post in posts%}
+      <div class="modal fade" id="modalUpdate{{ post.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form action="/admin/update/{{post.id}}" method="post" enctype="multipart/form-data">
+                    <div class="">
+                      <div class="mb-3">
+                        <label for="formFile" class="form-label">Post Image</label>
+                        <input class="form-control" value = "{{post.image}} "type="file" name="new_image" id="formFile">
+                      </div>
+                     
+                      <div class="form-group col-sm">
+                        <label for="Carname">Title</label>
+                        <input type="text" class="form-control" value="{{post.title}}" name="new_title" id="title" placeholder="Title">
+                      </div>
+                      
+                      <div class="form-group col-sm">
+                        <label for="description">Body</label>
+                        <!-- create a textarea to be replaced by the ckeditor  -->
+                      <textarea name="new_body" value="{{post.body | safe}}" id="blogtext"></textarea>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                      </div>
+                    </div>
+                    
+                </form>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+      {%endfor%}
+
+      <!-- Update Posts modal end  -->
+
+      {%for post in posts%}
+      <!-- Delete Posts modal start  -->
+      <div class="modal fade" id="modalDelete{{ post.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete post</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <p> </p>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <form action="/admin/delete/{{post.id}}">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                  </form>
+                </div>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+      {%endfor%}
+      
+      <!-- Delete Posts modal end  -->
+
+      
+    </div>
+
+</div>
+
+                   
+{% endblock %}
+

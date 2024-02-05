@@ -1,0 +1,63 @@
+{% extends 'admin_dashboard_base.html' %}
+
+{% block title %} 
+Users
+{% endblock %}
+
+
+{% block content%}
+<div class="container">
+    <div class="row">
+        <div class="show-user bg-white p-10">
+            <div class="crud-uers">
+                <h2 class="crud-user-head">Blog Users</h2>
+                <hr class="horizontal-user">
+                <div class="crud-user-body">
+                     <!-- table for displaying fetched car } -->
+      <table class="table car" style="border: 1px solid black;">
+        <thead>
+         <tr>
+            <th scope="col">User Image</th>
+             <th scope="col">User Name</th>
+             <th scope="col">User Email</th>
+             <th scope="col">Number Of Posts</th>
+             <th scope="col">Options</th>
+             
+         </tr>
+        </thead>
+        <tbody>
+         
+         <tr>
+             <td scope="col">
+                <img src="{{url_for('static', filename='admin/assets/img/user-1.jpeg')}}" alt="" width="25px"  class="img-table">
+             </td>
+             <td scope="col">Vickie</td>
+             <td scope="col"> vickie@gmail.com</td>
+             <td scope="col">4 </td>
+             
+             <td>
+              <button  class="btn btn-sm btn-warning pull-right" data-toggle="modal"  >Edit</button>
+              <button  class="btn btn-sm btn-danger pull-right" data-toggle="modal">Delete</button>
+             </td>
+         </tr>
+         
+         
+      </tbody>
+     
+     
+    </table>
+        
+    
+                </div>
+                <div class="crud-user-footer">
+    
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+</div>
+
+                   
+{% endblock %}

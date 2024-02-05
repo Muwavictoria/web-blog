@@ -1,0 +1,68 @@
+{% extends 'home.html'%}
+{% block title%}
+Blog Posts
+{% endblock %}
+
+{% block content%}
+<div class="container-fluid main-body">
+    <div class="row main-body-row">
+        
+        <div class="col col-sm-10 main-body-col">
+            <!-- blog posts -->
+            {% for post in posts %}
+            <div class=" title">
+                <div class="author">Author</div>
+                <div class="title-created"> {{ post.title }} </div>
+                <div class="date">  {{post.created }} </div>
+            </div>
+            <div class="blog-post row">
+                <div class="blog-post-img col col-sm-5">
+                    <img src="data:image/jpeg;base64,{{post.image|b64encode }}" alt="{{post.title}}">
+                    <p class="scrpture">Mathew 19:10 <br> {{post.slug}} </p>
+                </div>
+                <div class="blog-post-info col col-sm-7">
+                    <div class="info">
+                        {{post.body | safe }}
+                    </div>
+                     <a href="/blog/readmore/{{ post.id }}"class="ReadMore">Read More</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="col col-sm-2 side-body-col">
+            <div class="card">
+                <div class="card-header">
+                    Get Weekly Updates
+                </div>
+                <div class="card-body list1">
+                   <h4>Recent Posts</h4>
+                   <ul class="nav-item">
+                    {%for post in posts%}
+                    <li class="nav-list blog-list">
+                        {{post.title}}
+                    </li>
+                    {%endfor%}
+                   </ul>
+                </div>
+                <div class="card-body list2">
+                    <h5>
+                        Blog Topics
+                    </h5>
+                    <ul class="nav-item list2">
+                        {% for post in posts%}
+                        <li class="nav-list nav-list2">
+                            {{ post.slug }}
+                        </li>
+                        {%endfor%}
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    Search
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

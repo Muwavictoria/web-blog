@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 
+        {% block title %} 
+        {% endblock %}
+
+    </title>
+    <!-- fontawesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+
+    <!-- Bootstrap link  -->
+    <link rel="stylesheet" href="{{url_for('static', filename='blog/assets/css/bootstrap/bootstrap.min.css')}}">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='blog/assets/css/sass.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='blog/assets/css/layets.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='admin/assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='admin/assets/css/custom.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='blog/assets/css/responsive.css')}}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.2/tinymce.min.js" integrity="sha512-6JR4bbn8rCKvrkdoTJd/VFyXAN4CE9XMtgykPWgKiHjou56YDJxWsi90hAeMTYxNwUnKSQu9JPc3SQUg+aGCHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+</head>
+<body>
+    <div class="main-wrapper">
+        <!-- NAVBAR START  -->
+        <div class="header-container fixed-top">
+            <header class="header navbar navbar-expand-sm expand-header">
+                <div class="header-left d-flex">
+                    <div class="logo">
+                        CarBooking.com
+                    </div>
+                </div>
+                <ul class="navbar-item flex-row ml-auto">
+                    <!-- <li class="nav-item">
+                        <div class=" nav-link input-group search">
+                            <div class=" input-group-prepend">
+                              <input id="search-input" type="search" id="form1" class="form-control" placeholder="search" />
+                            </div>
+                            <div class="input-group-prepend">
+                                <i class="fas fa-search"></i>
+                            </div>                
+                        </div>
+                    </li> -->
+
+                    <li class="nav-item dropdown user-profile-dropdown">
+                        <a href="" class="nav-link user" id="Notify" data-bs-toggle="dropdown">
+                            <img src="{{url_for('static', filename='blog/assets/img/notify.png')}}" alt="" class="icon">
+                            <p class="count purple-gradient">5</p>
+                        </a>
+
+                        <div class="dropdown-menu">
+                            <div class="dp-main-menu">
+                                <a href="" class="dropdown-item message-item">
+                                    <img src="{{url_for('static', filename='blog/assets/img/cloud.png')}}" alt="" class="user-note">
+                                    <div class="note-info-dismiss">
+                                        <div class="user-notify-info">
+                                            <p class="not-name">Server Rebooted</p>
+                                            <p class="note-time">20 min ago</p>
+                                        </div>
+                                        <p href="" class="status-link"><span class="fas fa-times"></span></p>
+                                    </div>
+                                </a>
+                                <a href="" class="dropdown-item message-item">
+                                    <img src="{{url_for('static', filename='blog/assets/img/notes.png')}}" alt="" class="user-note">
+                                    <div class="note-info-dismiss">
+                                        <div class="user-notify-info">
+                                            <p class="not-name">Helal sent a file</p>
+                                            <p class="note-time">20 min ago</p>
+                                        </div>
+                                        <p href="" class="status-link"><span class="fas fa-times"></span></p>
+                                    </div>
+                                </a>
+                                <a href="" class="dropdown-item message-item">
+                                    <img src="{{url_for('static', filename='blog/assets/img/error.png')}}" alt="" class="user-note">
+                                    <div class="note-info-dismiss">
+                                        <div class="user-notify-info">
+                                            <p class="not-name">Server Don't work</p>
+                                            <p class="note-time">20 min ago</p>
+                                        </div>
+                                        <p href="" class="status-link"><span class="fas fa-times"></span></p>
+                                    </div>
+                                </a>
+                                <a href="" class="dropdown-item message-item">
+                                    <img src="{{url_for('static', filename='blog/assets/img/heart.png')}}" alt="" class="user-note">
+                                    <div class="note-info-dismiss">
+                                        <div class="user-notify-info">
+                                            <p class="not-name">Love Your Work</p>
+                                            <p class="note-time">20 min ago</p>
+                                        </div>
+                                        <p href="" class="status-link"><span class="fas fa-times"></span></p>
+                                    </div>
+                                </a>
+                                <a href="" class="dropdown-item message-item">
+                                    <img src="{{url_for('static', filename='blog/assets/img/error.png')}}" alt="" class="user-note">
+                                    <div class="note-info-dismiss">
+                                        <div class="user-notify-info">
+                                            <p class="not-name">Server Don't work</p>
+                                            <p class="note-time">20 min ago</p>
+                                        </div>
+                                        <p href="" class="status-link"><span class="fas fa-times"></span></p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                    </li>
+                    <li class="nav-item dropdown user-profile-dropdown">
+                        <a href="" class="nav-link user" id="Notify" data-bs-toggle="dropdown">
+                            <img src="{{url_for('static', filename='blog/assets/img/email.png')}}" alt="" class="icon">
+                            <p class="count bg-clc">5</p>
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="dp-main-menu">
+                                <a href="" class="dropdown-item message-item">
+                                    <img src="{{url_for('static', filename='blog/assets/img/user-1.jpeg')}}" alt="" class="sms-user">
+                                        <div class="user-message-info">
+                                            <p class="m-user-name">Hellal Uddin</p>
+                                            <p class="user-role">Super Admin</p>
+                                        </div>  
+                                </a>
+                                <a href="" class="dropdown-item message-item">
+                                    <img src="{{url_for('static', filename='blog/assets/img/user-2.jpeg')}}" alt="" class="sms-user">
+                                        <div class="user-message-info">
+                                            <p class="m-user-name">Hellal Uddin</p>
+                                            <p class="user-role">Super Admin</p>
+                                        </div>  
+                                </a>
+                                <a href="" class="dropdown-item message-item">
+                                    <img src="{{url_for('static', filename='blog/assets/img/user-3.jpeg')}}" alt="" class="sms-user">
+                                        <div class="user-message-info">
+                                            <p class="m-user-name">Hellal Uddin</p>
+                                            <p class="user-role">Super Admin</p>
+                                        </div>  
+                                </a>
+                                <a href="" class="dropdown-item message-item">
+                                    <img src="{{url_for('static', filename='blog/assets/img/user-4.jpeg')}}" alt="" class="sms-user">
+                                        <div class="user-message-info">
+                                            <p class="m-user-name">Hellal Uddin</p>
+                                            <p class="user-role">Co Admin</p>
+                                        </div>  
+                                </a>
+                                <a href="" class="dropdown-item message-item">
+                                    <img src="{{url_for('static', filename='blog/assets/img/user-5.jpeg')}}" alt="" class="sms-user">
+                                        <div class="user-message-info">
+                                            <p class="m-user-name">Hellal Uddin</p>
+                                            <p class="user-role">Writer</p>
+                                        </div>  
+                                </a>
+                                <a href="" class="dropdown-item message-item">
+                                    <img src="{{url_for('static', filename='blog/assets/img/user-6.jpeg')}}" alt="" class="sms-user">
+                                        <div class="user-message-info">
+                                            <p class="m-user-name">Hellal Uddin</p>
+                                            <p class="user-role">Admin</p>
+                                        </div>  
+                                </a>
+                                
+                            
+                            </div>
+                        </div>
+
+
+
+                    </li>
+                    <li class="nav-item dropdown user-profile-dropdown">
+                        <a href="" class="nav-link user" id="Notify" data-bs-toggle="dropdown">
+                            <img src="{{url_for('static', filename='blog/assets/img/profile.png')}}" alt="" class="icon">
+                        </a>
+
+                        <div class="dropdown-menu">
+                            <div class="user-profile-section">
+                                <div class="media mx-auto">
+                                    <img src="{{url_for('static', filename='blog/assets/img/profile.png')}}" alt="" class="img-fluid mr-2">
+                                    <div class="media-body">
+                                        <h5>Helelal uddin</h5>
+                                        <p>Super Admin</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="dp-main-menu">
+                                <a href="" class="dropdown-item"><span class="fas fa-user"></span>User</a>
+                                <a href="" class="dropdown-item"><span class="fas fa-inbox"></span>Inbox</a>
+                                <a href="" class="dropdown-item"><span class="fas fa-lock-open"></span>Lock screen</a>
+                                <a href="" class="dropdown-item"><span class="fas fa-outdent"></span>Log Out</a>
+                            </div>
+                        </div>
+
+                    </li>
+
+                    <li class="nav-item dropdown user-profile-dropdown">
+                        <a href="" class="nav-link user" id="Notify" data-bs-toggle="dropdown">
+                            <img src="{{url_for('static', filename='blog/assets/img/setting.png')}}" alt="" class="icon">
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="dp-main-menu">
+                                <a href="" class="dropdown-item"><span class="fas fa-plug"></span>Permisssion</a>
+                                <a href="" class="dropdown-item"><span class="fas fa-users"></span>Admins</a>
+                                <a href="" class="dropdown-item"><span class="fas fa-object-ungroup"></span>Design Types</a>
+                                <a href="" class="dropdown-item"><span class="fas fa-palette"></span>Color</a>
+
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </header>
+
+        </div>
+          <!-- SIDEBAR START  -->
+          <div class="left-menu">
+            <div class="menubar-content">
+                <nav class="animated bounceInDown">
+                    <ul id="sidebar">
+                        <li class="active">
+                            <a href="{{url_for('admin.admin_dashboard')}}"> <i class="fas fa-home"></i>Dashboard </a>
+                        </li>
+                        <li>
+                            <a href="#"> <i class="fas fa-box-open"></i>Blog Site </a>
+                        </li>
+                        <li>
+                            <a href="#"> <i class="fab fa-uikit"></i>Admintrators </a>
+                        </li>
+                        <li>
+                            <a href="{{url_for('admin.users')}}"> <i class="fas fa-chart-bar"></i>Users </a>
+                        </li>
+                        <li>
+                            <a href="#"> <i class="fab fa-telegram-plane"></i>Posts</a>
+                        </li>
+                        <!-- drop down lit item  start -->
+                        <li class="sub-menu">
+                            <a href="#"> <i class="fas fa-cogs"></i>Settings
+                                <div class="fa fa-caret-down right"></div>
+                            </a>
+                            <ul class="left-menu-dp">
+                               <li >
+                                <a href="" ><i class="fas fa-user-circle"></i> Account</a> 
+                                </li>
+                                <li>
+                                <a href="" ><i class="fas fa-id-card"></i> Profile</a> 
+                                </li>
+                                <li>
+                                <a href="" ><i class="fas fa-fingerprint"></i> Security &amp; Privacy</a> 
+                                </li>
+                                <li>
+                                <a href="" ><i class="fas fa-key"></i> Password</a> 
+                                </li>
+                                <li>
+                                <a href="" ><i class="fas fa-bell"></i> Notification</a> 
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- drop down lit item  start -->
+                        <li>
+                            <a href="{{url_for('admin.admin_login')}}"> <i class="fas fa-sign-out-all"></i>Logout </a>
+                        </li>
+                        
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- SIDEBAR END  -->
+
+        <!-- MAIN BODY START  -->
+        <div class="content-wrapper">
+            <section class="dashboard-top-sec">
+                <div class="container-fluid">
+                   {% block content%}
+                   {% endblock %}
+                </div>
+            </section>
+        </div>
+        <!-- MAIN BODY END  -->
+
+
+    </div>
+    
+
+
+
+
+    <!-- javascript link 
+     -->
+     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+     <script src="{{url_for('static', filename='blog/assets/js/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='blog/assets/js/bootstrap/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{url_for('static', filename='admin/assets/js/main.js')}}"></script>
+
+    <script>
+        tinymce.init({
+  selector: '#blogtext',
+  height: 500,
+  menubar: false,
+  plugins: [
+    'advlist autolink lists link image charmap print preview anchor',
+    'searchreplace visualblocks code fullscreen',
+    'insertdatetime media table paste code help wordcount'
+  ],
+  toolbar: 'undo redo | formatselect | ' +
+  'bold italic backcolor | alignleft aligncenter ' +
+  'alignright alignjustify | bullist numlist outdent indent | ' +
+  'removeformat | help',
+  content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+});
+    </script>
+</body>
+</html>

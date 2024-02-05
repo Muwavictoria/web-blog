@@ -1,0 +1,68 @@
+body{
+    background-color: rgb(13, 13, 13);
+}
+
+.login-register{
+    height: 50%;
+    width: 400px;
+    background: white;
+    justify-content: center;
+    box-shadow: -2px 3px 13px 0px #ddd;
+
+}
+.register{
+     display: grid;
+  place-items: center;
+  height: 100vh;
+}
+.login-register form {
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.login-register .form-group {
+    margin-bottom: 10px;
+    border: 1px solid rgb(13,13,14);
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: -1px 1px 2px 1px;
+}
+button.btn.btn-primary.form-group.button-in {
+    background: rgb(13,13,13);
+    width: 70%;
+    top: 5px;
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: 5px;
+    box-shadow: -1px 2px 3px 1px #ddd;
+}
+
+
+.chart-nav.active {
+    background-color: #fff !important;
+    background: #fff;
+    color: var(--main-color) !important;
+    border-bottom: 2px solid rgb(13, 13, 13);
+    border-radius: 0;
+}
+.chart-nav:hover {
+    color: var(--main-color);
+}
+
+
+.chart-nav {
+    padding: 5px 15px;
+    transition: .5s;
+    border-radius: 0;
+}
+
+.chart-header-tab{
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: 700;
+    
+}
+.chart-header-tab li{
+   color: rgb(95, 92, 92);
+}
