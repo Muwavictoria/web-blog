@@ -6,8 +6,76 @@ Blog Posts Readmore
 {% block content%}
 <div class="container-fluid main-body">
     <div class="row main-body-row">
+
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 side-body-col">
+            <div class="page-head-blog ">
+                <div class="single-blog-page">
+                    <!-- search  -->
+                    <form action="#">
+                        <div class="search-option">
+                        <input type="text" placeholder="Search...">
+                        <button class="button" type="submit">
+                            <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="">
+                <div class="single-blog-page">
+                    <!-- recent start -->
+                    <div class="left-blog">
+                    <h4>recent post</h4>
+                    
+                    <div class="recent-post">
+                        {%for post in posts%}
+                        <!-- start single post -->                            
+                        <div class="recent-single-post">
+                        <div class="post-img">
+                            <a href="#">
+                                <img src="data:image/jpeg;base64,{{post.image|b64encode }}" alt="{{post.title}}"> </a>
+                        </div>
+                        <div class="pst-content">
+                            <p><a href="#"> {{post.title}}</a></p>
+                        </div>
+
+                        </div>
+                        {%endfor%}
+                    </div>
+                    </div>
+                    <!-- recent end -->
+                </div>
+                <div class="single-blog-page">
+                    <div class="left-blog">
+                    <h4>categories</h4>
+                    
+                    <ul>
+                        {%for post in posts%}
+                        <li>
+                        <a href="#">{{ post.slug }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    
+                    </div>
+                </div>
+                <div class="single-blog-page">
+                    <div class="left-blog">
+                    <h4>archive</h4>
+                    <ul>
+                        {%for post in posts%}
+                        <li>
+                        <a href="#">{{post.created}} </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    </div>
+                </div>
+            
+            </div>
+    </div>
         
-        <div class="col col-sm-10 main-body">
+        <div class="col-md-8 col-sm-8 col-xs-12 main-body-col">
             
             <h2> {{post.title}} </h2>
            <p>
@@ -18,39 +86,7 @@ Blog Posts Readmore
            </h5>
         </div>
         
-        <div class="col col-sm-2 side-body-col">
-            <div class="card">
-                <div class="card-header">
-                    Get Weekly Updates
-                </div>
-                <div class="card-body list1">
-                   <h4>Recent Posts</h4>
-                   <ul class="nav-item">
-                    {%for post in posts%}
-                    <li class="nav-list blog-list">
-                        {{post.title}}
-                    </li>
-                    {%endfor%}
-                   </ul>
-                </div>
-                <div class="card-body list2">
-                    <h5>
-                        Blog Topics
-                    </h5>
-                    <ul class="nav-item list2">
-                        {% for post in posts%}
-                        <li class="nav-list nav-list2">
-                            {{ post.slug }}
-                        </li>
-                        {%endfor%}
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    Search
-                </div>
-            </div>
 
-        </div>
     </div>
 </div>
 {% endblock %}

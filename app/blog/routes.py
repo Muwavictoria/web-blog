@@ -14,11 +14,32 @@ def blog_posts():
 @blog.route('/home', methods=['GET','POST'])
 def home():
     if request.method == "GET":
+
+        page = request.args.get('page', 1, type=int)
+        limit = request.args.get('limit', 3, type=int)
+        start = limit * (page - 1)
+        end = start + limit
+
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM post')
+        cursor.execute('SELECT * FROM post LIMIT %s, %s', (start, end))
         posts = cursor.fetchall()  # Fetch all rows from the result set
+        cursor.execute('SELECT COUNT(*) FROM post')
+       
+
+        total_posts_result = cursor.fetchone()
+
         cursor.close() 
-        return render_template('blog.html', posts=posts )       
+
+        if total_posts_result is not None:
+            total_posts = total_posts_result['COUNT(*)']
+        else:
+            total_posts= 0
+
+        pagination = {'table': False, 'prev': start > 0, 'next': end < total_posts}
+
+        
+
+        return render_template('blog.html', posts=posts, pagination=pagination, page=page )       
     return render_template('blog.html')
 
 @blog.route('/cars')

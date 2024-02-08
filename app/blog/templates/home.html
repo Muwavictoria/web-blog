@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{url_for('static', filename='blog/assets/css/layets.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='blog/assets/css/style.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='blog/assets/css/blog.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='blog/assets/css/blog2.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='blog/assets/css/responsive.css')}}">
 
 
@@ -27,12 +28,13 @@
 </head>
 <body>
     <div class="container-fluid blog-fluid">
-      
+
       <!-- navbar start -->
-   <div class=" nav navbar navbar-expand-lg blog-nav">
+      <div class=" nav navbar navbar-expand-lg blog-nav">
         <div class="logo">
-          <a href="#">LUCU Bible study</a>
+          <a href="#">LUCU BIBLE STUDY</a>
         </div>
+        
         <div class="nav-list nav-item">
         <ul class="navbar-item flex-row ml-auto">
           <li class="nav-item dropdown user-profile-dropdown">
@@ -189,75 +191,166 @@
         </div>
         
    </div>
-   <hr>
-   <div class="connection-top">
-    <div-bible>
-      <i class="fas fa-book">Bible</i>
-    </div-bible>
-    <div class="today">
-      <ul class=" navbar-item">
-        <li class="nav-item nav-link today-list">
-          <a href="#">Today</a>
-        </li>
-        <li class="nav-item nav-link today-list">
-          <a href="#">Programs</a>
-        </li>
-        <li class="nav-item  nav-link today-list">
-          <a href="#">Sermons</a>
-        </li>
-        <li class="nav-item nav-link today-list">
-          <a href="#">Blog</a>
-        </li>
-        <li class="nav-item nav-link today-list">
-          <a href="#">More</a>
-        </li>
-      </ul>
-    </div>
-    <div class="avn-sam">
-      <ul class="navbar-item flex-row ml-auto">
-        <li class="nav-item connection">
-          <a href="#" class="nav-link donate-link ml-2">
-            <img src="{{url_for('static', filename='blog/assets/img/notify.png')}}" alt="" class="icon-b">
-          </a>
-         
-        </li>
-        <li class="nav-item connection">
-          <a href="#" class="nav-link donate-link ml-2">
-            <img src="{{url_for('static', filename='blog/assets/img/notify.png')}}" alt="" class="icon-b">
-          </a>
-         
-        </li>
-        <li class="nav-item connection">
-          <a href="#" class="nav-link donate-link ml-2">
-            <img src="{{url_for('static', filename='blog/assets/img/notify.png')}}" alt="" class="icon-b">
-          </a>
+    <!-- header-area end -->
 
-        </li>
-        <li class="nav-item connection">
-          <div class="btn btn-donate p-o">
-            <button class="btn btn-donate  p-o" type="button">Donate</button>
+
+  <!-- Start Bottom Header -->
+  <div class="header-bg page-area">
+    <div class="home-overly"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="connection-top">
+            <div-bible>
+              <i class="fas fa-book">Bible</i>
+            </div-bible>
+            <div class="today">
+              <ul class=" navbar-item">
+                <li class="nav-item nav-link today-list">
+                  <a href="#">Today</a>
+                </li>
+                <li class="nav-item nav-link today-list">
+                  <a href="#">Programs</a>
+                </li>
+                <li class="nav-item  nav-link today-list">
+                  <a href="#">Sermons</a>
+                </li>
+                <li class="nav-item nav-link today-list">
+                  <a href="#">Blog</a>
+                </li>
+                <li class="nav-item nav-link today-list">
+                  <a href="#">More</a>
+                </li>
+              </ul>
+            </div>
+            <div class="avn-sam">
+              <ul class="navbar-item flex-row ml-auto">
+                <li class="nav-item connection">
+                  <a href="#" class="nav-link donate-link ml-2">
+                    
+                  </a>
+                </li>
+                <li class="nav-item connection">
+                  <a href="#" class="nav-link donate-link ml-2">
+                    
+                  </a>
+                 
+                </li>
+                <li class="nav-item connection">
+                  <a href="#" class="nav-link donate-link ml-2">
+                  
+                  </a>
+        
+                </li>
+                <li class="nav-item connection">
+                  <div class="btn btn-donate p-o">
+                    <button class="btn btn-donate  p-o" type="button">Donate</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+        
           </div>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
-
   </div>
+      
+  
    
    <!-- navbar end  -->
     <!-- MAIN PAGE CONTENT START -->
-    <div class="main-section">
+    <div class="blog-page area-padding">
       {% block content%}
     {% endblock %}
     </div>
 
     <!-- MAIN PAGE CONTENT END -->
-    <hr>
-    <footer class="footer-class bg-light text-dark">
-      <p class="copyright">
-        vickiemuwa@24 ..2024
-      </p>
-    </footer>
-</div>
+    
+<!-- Start Footer bottom Area -->
+
+<footer>
+  <div class="footer-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="footer-content">
+            <div class="footer-head">
+              <div class="logo">
+                BIBLE STUDY LUCU
+              </div>
+
+              <p>Lira University Christian Union Fellowship Bible Study site</p>
+              <div class="footer-icons">
+                <ul>
+                  <li>
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa fa-google"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end single footer -->
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="footer-content">
+            <div class="footer-head">
+              <h4>information</h4>
+              <p>
+                Lira University
+              </p>
+              <div class="footer-contacts">
+                <p><span>Tel:</span> +256762629360</p>
+                <p><span>Email:</span> lirauniversity@lucu.com</p>
+                <p><span>Working Hours:</span>Daily</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end single footer -->
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="footer-content">
+            <div class="footer-head">
+              <h4>Instagram</h4>
+              <div class="flicker-img">
+                <a href="#"><img src="img/portfolio/1.jpg" alt=""></a>
+                <a href="#"><img src="img/portfolio/2.jpg" alt=""></a>
+                <a href="#"><img src="img/portfolio/3.jpg" alt=""></a>
+                <a href="#"><img src="img/portfolio/4.jpg" alt=""></a>
+                <a href="#"><img src="img/portfolio/5.jpg" alt=""></a>
+                <a href="#"><img src="img/portfolio/6.jpg" alt=""></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-area-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="copyright text-center">
+            <p>
+              &copy; Copyright <strong>vickiemuwa</strong>. All Rights Reserved
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
 
 
